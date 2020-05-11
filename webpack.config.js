@@ -13,7 +13,7 @@ const clientConfig = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                use: ['babel-loader','eslint-loader']
             }
         ]
     }
@@ -32,7 +32,7 @@ const serverConfig = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                use: ['babel-loader','eslint-loader']
             }
         ]
     },
