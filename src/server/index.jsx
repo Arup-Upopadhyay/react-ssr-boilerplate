@@ -3,20 +3,15 @@ import path from "path";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import App from "../client/app.jsx";
+import { Helmet } from 'react-helmet';
+import htmlTemplate from "../common/utils/template.jsx";
 
 function handleRender(req, res) {
     const reactHtml = ReactDOMServer.renderToString(<App />);
-    const htmlTemplate = `<!DOCTYPE html>
-<html>
-    <head>
-        <title>Universal React server bundle</title>
-    </head>
-    <body>
-        <div id="app">${reactHtml}</div>
-        <script src="public/client.bundle.js"></script>
-    </body>
-</html>`;
-    res.send(htmlTemplate);
+    const helmetData = Helmet.renderStatic( );
+
+    res.writeHead( 200, { "Content-Type": "text/html" } );
+    res.end( htmlTemplate( reactHtml, helmetData ) );
 }
 
 const app = express();
