@@ -6,7 +6,7 @@ import App from "../client/app.jsx";
 import { Helmet } from 'react-helmet';
 import htmlTemplate from "../common/utils/template.jsx";
 
-function handleRender(req, res) {
+async function handleRender(req, res) {
     const reactHtml = ReactDOMServer.renderToString(<App />);
     const helmetData = Helmet.renderStatic( );
 

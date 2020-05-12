@@ -3,8 +3,6 @@ export default function htmlTemplate( reactDom, helmetData ) {
                 <html>
                     <head>
                         <meta charset="utf-8">
-                        ${ helmetData.title.toString( ) }
-                        ${ helmetData.meta.toString( ) }
                         <title>React server side App</title>
                     </head>
                     <body>
