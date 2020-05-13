@@ -9,6 +9,8 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import allReducers from '../common/reducers/allReducers.jsx';
 
+const PORT = process.env.PORT || 3000;
+
 async function handleRender(req, res) {
     const ServerApp = ({store}) => (
         <Provider store={store}>
@@ -34,5 +36,7 @@ const app = express();
 app.use("/public", express.static("./dist/public"));
 
 app.get("*", handleRender);
-app.listen(3000);
+
+app.listen(PORT);
+
 console.log("App is running on http://localhost:3000");
