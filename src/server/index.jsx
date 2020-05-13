@@ -12,15 +12,15 @@ import allReducers from '../common/reducers/allReducers.jsx';
 const PORT = process.env.PORT || 3000;
 
 async function handleRender(req, res) {
+    const store = createStore(allReducers);
+
+    const preloadedState = store.getState();
+
     const ServerApp = ({store}) => (
         <Provider store={store}>
             <App />
         </Provider>
     );
-
-    const store = createStore(allReducers);
-
-    const preloadedState = store.getState();
 
     const reactHtml = ReactDOMServer.renderToString(<ServerApp store={store} />);
 

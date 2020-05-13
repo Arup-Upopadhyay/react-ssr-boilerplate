@@ -6,9 +6,7 @@
   "scripts": {
     "build:dist": "better-npm-run build:dist",
     "build:prod": "better-npm-run build:prod",
-    "build:start": "better-npm-run build:start",
-    "build": "rm -rf dist && NODE_ENV=production webpack --progress",
-    "start": "node ./dist/server.bundle.js"
+    "build:start": "better-npm-run build:start"
   },
   "keywords": [],
   "author": "",
