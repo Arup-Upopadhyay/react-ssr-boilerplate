@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
+const dev = process.env.NODE_ENV !== 'production';
+
 //const nodeExternals = require('webpack-node-externals');
 
 const clientConfig = {
@@ -8,6 +10,11 @@ const clientConfig = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'public/client.bundle.js'
     },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
+    devtool: "source-map",
+    mode: dev ? 'development': 'production',
     module: {
         rules: [
             {
@@ -22,7 +29,10 @@ const clientConfig = {
 const serverConfig = {
     entry: './src/server/index.jsx',
     target: "node",
-    devtool: "source-map",
+    mode: dev ? 'development': 'production',
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'server.bundle.js'
