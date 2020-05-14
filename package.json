@@ -1,35 +1,73 @@
 {
-  "name": "webpack-tutorial",
-  "version": "1.0.0",
-  "description": "",
-  "private": true,
-  "scripts": {
-    "build": "rm -rf dist && webpack --mode development",
-    "start": "node ./dist/server.bundle.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4",
-    "babel-loader": "^8.1.0",
-    "eslint": "^7.0.0",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-react": "^7.19.0",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "lodash": "^4.17.15",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-helmet": "^6.0.0",
-    "react-redux": "^7.2.0",
-    "react-router-dom": "^5.1.2",
-    "redux": "^4.0.5"
-  }
+    "name": "webpack-tutorial",
+    "version": "1.0.0",
+    "description": "",
+    "private": true,
+    "scripts": {
+        "build:dist": "better-npm-run build:dist",
+        "build:prod": "better-npm-run build:prod",
+        "build:start": "better-npm-run build:start"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/cli": "^7.0.0",
+        "@babel/core": "^7.9.6",
+        "@babel/preset-env": "^7.9.6",
+        "@babel/preset-react": "^7.9.4",
+        "babel-loader": "^8.1.0",
+        "better-npm-run": "^0.1.1",
+        "eslint": "^7.0.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-loader": "^4.0.2",
+        "eslint-plugin-react": "^7.19.0",
+        "nodemon": "^2.0.4",
+        "prettier": "^2.0.5",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.11"
+    },
+    "dependencies": {
+        "app-root-path": "^3.0.0",
+        "express": "^4.17.1",
+        "isomorphic-fetch": "^2.2.1",
+        "lodash": "^4.17.15",
+        "morgan": "^1.10.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-helmet": "^6.0.0",
+        "react-redux": "^7.2.0",
+        "react-router-dom": "^5.1.2",
+        "redux": "^4.0.5",
+        "redux-logger": "^3.0.6",
+        "redux-thunk": "^2.3.0",
+        "winston": "^3.2.1"
+    },
+    "nodemonConfig": {
+        "watch": [
+            "./src/**"
+        ],
+        "ext": "jsx"
+    },
+    "betterScripts": {
+        "build:start": {
+            "command": "nodemon  ./dist/server.bundle.js",
+            "env": {
+                "NODE_ENV": "production",
+                "PORT": 3000
+            }
+        },
+        "build:prod": {
+            "command": "rm -rf dist && prettier --write src && webpack --progress",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        },
+        "build:dist": {
+            "command": "rm -rf dist && prettier --write src && webpack --progress",
+            "env": {
+                "NODE_ENV": "development"
+            }
+        }
+    }
 }
