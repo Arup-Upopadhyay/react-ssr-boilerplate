@@ -8,8 +8,11 @@ import htmlTemplate from "../common/utils/template.jsx";
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import allReducers from '../common/reducers/allReducers.jsx';
+import morgan from 'morgan';
+import winston from '../../winston';
 
 const PORT = process.env.PORT || 3000;
+
 
 async function handleRender(req, res) {
     const store = createStore(allReducers);
@@ -34,6 +37,8 @@ async function handleRender(req, res) {
 const app = express();
 
 app.use("/public", express.static("./dist/public"));
+
+app.use(morgan('combined' , { stream: winston.stream }));
 
 app.get("*", handleRender);
 
