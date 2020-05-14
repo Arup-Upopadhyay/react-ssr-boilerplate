@@ -1,4 +1,4 @@
-export default function htmlTemplate( reactDom, helmetData ,preloadedState) {
+export default function htmlTemplate(reactDom, helmetData, preloadedState) {
     return `<!DOCTYPE html>
                 <html>
                     <head>
@@ -8,13 +8,12 @@ export default function htmlTemplate( reactDom, helmetData ,preloadedState) {
                     <body>
                         <div id="app">${reactDom}</div>
                         <script>
-                            window.__PRELOADED_STATE__ = ${JSON
-                                            .stringify(preloadedState)
-                                            .replace(/</g,'\\u003c')}
+                            window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
+                                /</g,
+                                '\\u003c'
+                            )}
                         </script>
                         <script src="public/client.bundle.js"></script>
                     </body>
                 </html>`;
 }
-
-
