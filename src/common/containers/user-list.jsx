@@ -30,7 +30,7 @@ function mapStateToProps(state) {
 // Get actions and pass them as props to to UserList
 //      > now UserList has this.props.selectUser
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({ selectUser: selectUser }, dispatch);
+    return bindActionCreators({ selectUser }, dispatch);
 }
 
 // We don't want to return the plain UserList (component) anymore, we want to return the smart Container
