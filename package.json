@@ -11,18 +11,13 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "eslintConfig": {
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
         }
     },
     "lint-staged": {
-        "*.jsx": ["eslint --fix --ext *.jsx","prettier --write src"]
+        "*.jsx": ["prettier --write src"]
     },
     "devDependencies": {
         "@babel/cli": "^7.0.0",
