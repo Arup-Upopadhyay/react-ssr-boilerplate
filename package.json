@@ -22,7 +22,7 @@
         }
     },
     "lint-staged": {
-        "*.jsx": ["eslint --fix --ext *.jsx","prettier --write src","git add"]
+        "*.jsx": ["eslint --fix --ext *.jsx","prettier --write src"]
     },
     "devDependencies": {
         "@babel/cli": "^7.0.0",
